@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Sentiment Analyzer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>í¾¬ Sentiment Analyzer</h1>
+      <p class="subtitle">AI-powered YouTube comment analysis</p>
+    </div>
+
+    <!-- API Configuration -->
+    <div class="config-section">
+      <label for="api-url">API URL:</label>
+      <input type="text" id="api-url" value="http://localhost:8000" placeholder="http://localhost:8000">
+      <button id="test-api" class="btn-secondary">Test Connection</button>
+      <div id="api-status" class="status-message"></div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions">
+      <button id="analyze-btn" class="btn-primary">
+        <span class="btn-icon">í³Š</span> Analyze Comments
+      </button>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Analyzing comments...</p>
+    </div>
+
+    <!-- Statistics -->
+    <div id="statistics" class="statistics hidden">
+      <h3>í³ˆ Analysis Results</h3>
+      <div class="stats-grid">
+        <div class="stat-card positive">
+          <div class="stat-value" id="positive-count">0</div>
+          <div class="stat-label">Positive</div>
+          <div class="stat-percentage" id="positive-percent">0%</div>
+        </div>
+        <div class="stat-card neutral">
+          <div class="stat-value" id="neutral-count">0</div>
+          <div class="stat-label">Neutral</div>
+          <div class="stat-percentage" id="neutral-percent">0%</div>
+        </div>
+        <div class="stat-card negative">
+          <div class="stat-value" id="negative-count">0</div>
+          <div class="stat-label">Negative</div>
+          <div class="stat-percentage" id="negative-percent">0%</div>
+        </div>
+      </div>
+      <div class="meta-stats">
+        <p>Total Comments: <strong id="total-comments">0</strong></p>
+        <p>Processing Time: <strong id="processing-time">0ms</strong></p>
+        <p>Avg Confidence: <strong id="avg-confidence">0%</strong></p>
+      </div>
+    </div>
+
+    <!-- Filter Controls -->
+    <div id="filter-controls" class="filter-controls hidden">
+      <h4>Filter by sentiment:</h4>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="positive">Positive</button>
+        <button class="filter-btn" data-filter="neutral">Neutral</button>
+        <button class="filter-btn" data-filter="negative">Negative</button>
+      </div>
+    </div>
+
+    <!-- Results List -->
+    <div id="results" class="results hidden"></div>
+
+    <!-- Error Message -->
+    <div id="error" class="error hidden"></div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <button id="export-btn" class="btn-secondary hidden">
+        í³¥ Export Results
+      </button>
+      <button id="dark-mode-toggle" class="btn-icon-only" title="Toggle Dark Mode">
+        í¼™
+      </button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
