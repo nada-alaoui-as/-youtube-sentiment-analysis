@@ -1,0 +1,16 @@
+# Core ML
+scikit-learn
+pandas
+numpy
+
+# API
+fastapi
+uvicorn[standard]
+pydantic
+
+# Utils
+joblib
+python-multipart
+
+# Data processing
+nltk
